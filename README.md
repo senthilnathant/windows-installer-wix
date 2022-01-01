@@ -31,7 +31,7 @@ b.	Code compilation:
 	Open the HelloWorld_WixInstaller.sln found in HelloWorld_WixInstaller_Demo\HelloWorld_WixInstaller folder,
 	clean build it, the output file HelloWorld_WixInstaller.msi and be found in \bin\Release or \bin\Debug based on your build selection.
 	
-	The repository has a output file HelloWorld_WixInstaller.msi at the folder HelloWorld_WixInstaller_Demo\HelloWorld_WixInstaller\output
+	The repository has an output file HelloWorld_WixInstaller.msi at the folder HelloWorld_WixInstaller_Demo\HelloWorld_WixInstaller\output
 	This is signed by my individual code signing certificate, just to prove its origin.
 
 	This is the MSI Installer file project, a Wix Toolset project. The output of this prohect build is the HelloWorld_WixInstaller.msi file.
