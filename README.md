@@ -1,5 +1,6 @@
 # windows-installer-wix
-This repository contains source code for Windows Installer built built with Wix ToolSet
+
+This repository contains source code for Windows Installer built with WiX ToolSet.
 
 a. 	Pre-requisites:
 --------------------
