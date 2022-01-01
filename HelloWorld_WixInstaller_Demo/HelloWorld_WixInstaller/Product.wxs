@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+	<!-- This is a 32 bit installer package that installs the HelloWorld.exe program to 
+	"Program Files (x86)\HelloWorld WixInstaller Demo" on 64 bit machine and 
+	"Program Files\HelloWorld WixInstaller Demo" on 32 bit machine and adds the Hello World WixInstaller Demo 
+	entry to Programs and Features section (Add or remove programs) of Control Panel for later uninstallation -->
+	
+	<!-- Define Product Id - this would vary for each version of the product -->
+	<!-- Define UpgradeCode - this would be the same value for all versions of the same product -->
+	<!-- Other values change accordingly -->
+	
+	<Product Id="1E1AB457-AF9A-47E7-8D44-5D172705AFDA"
+			 Name="Hello World Wix Installer Demo Application" Language="1033" 
+			 Version="0.1.0.0" 
+			 Manufacturer="SENTHILNATHAN THANGAVEL, INDEPENDENT DEVELOPER" 
+			 UpgradeCode="54D11EEA-53A3-4CFE-96C4-76D5E004921B"> 
+		
+		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" Comments="Installer for Hello World WixInstaller Demo v1.0.0"/>
+
+		<Media Id="1" Cabinet="simple.cab" EmbedCab="yes" />
+		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." Schedule="afterInstallInitialize" AllowSameVersionUpgrades="yes" />
+
+		<Feature Id="ProductFeature" Title="HelloWorld_WixInstaller" Level="1">
+			<ComponentGroupRef Id="ProductComponents" /> <!-- Add ProductComponents ComponentGroup defined in the Fragment below -->
+		</Feature>
+
+		<Property Id="WIXUI_INSTALLDIR" Value="INSTALLFOLDER"/>
+		<UIRef Id="WixUI_InstallDir" />
+
+		<!-- Add license agreement text -->
+		<WixVariable Id="WixUILicenseRtf" Value="resources\eula_en_us.rtf" />
+
+		<!--Add or remove programs properties-->
+		<!--Application Icon-->
+		<Icon Id="icon.ico" SourceFile="resources\SetupIcon.ico"/>
+		<Property Id="ARPPRODUCTICON" Value="icon.ico" />
+		<!--Help Link-->
+		<Property Id="ARPHELPLINK" Value="https://github.com/senthilnathant/windows-installer-wix"/>
+		
+	</Product>	
+
+	<Fragment>
+		<Directory Id="TARGETDIR" Name="SourceDir">
+			<Directory Id="ProgramFilesFolder"> <!-- Default directory is Program Files on 32 bit OS, if OS is 64 bit, this refers to Program Files (x86) -->
+				<Directory Id="INSTALLFOLDER" Name="Hello World WixInstaller Demo" />
+			</Directory>
+		</Directory>
+	</Fragment>
+
+	<Fragment>
+		<!-- Define the component group here and this will be added to the Product Feature -->
+		<ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">			
+			<!-- Add each component here with <Component></Component> tag -->
+			<Component Id="HELLOWORLD.EXE" DiskId="1" Guid="17B66532-7801-94CA-A2AF-D787636E3C91">
+				<File Id="HELLOWORLD.EXE" Name="HelloWorld.exe" Source="source\HelloWorld.exe" />	
+			</Component>
+		</ComponentGroup>
+	</Fragment>
+</Wix>
