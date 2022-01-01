@@ -34,7 +34,7 @@ b.	Code compilation:
 	The repository has an output file HelloWorld_WixInstaller.msi at the folder HelloWorld_WixInstaller_Demo\HelloWorld_WixInstaller\output
 	This is signed by my individual code signing certificate, just to prove its origin.
 
-	This is the MSI Installer file project, a Wix Toolset project. The output of this prohect build is the HelloWorld_WixInstaller.msi file.
+	This is the MSI Installer file project, a Wix Toolset project. The output of this project build is the HelloWorld_WixInstaller.msi file.
 	When it is run, it opens the MSI installer dialog and you proceed with the installation. 
 	This is a 32 bit installer package that installs the HelloWorld.exe program to 
 	"Program Files (x86)\HelloWorld WixInstaller Demo" on 64 bit machine and 
